@@ -14,7 +14,7 @@ const LoginPrompt = () => {
       backgroundPosition="center"
     >
       <Box
-        bg="rgba(255, 165, 0, 0.8)"
+        bg="#F6DEB5"
         p={8}
         rounded="lg"
         boxShadow="lg"
