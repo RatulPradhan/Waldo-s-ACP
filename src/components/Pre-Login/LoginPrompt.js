@@ -1,8 +1,16 @@
 import { Box, Button, Flex, Heading, Input, Stack, } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const LoginPrompt = () => {
+const LoginPrompt = ({setUser}) => {
+
+  const [email, setEmail] = useState('')
   const navigate = useNavigate();
+
+  const handleLogin = (email) =>{
+    setUser(email);
+    navigate("/home");
+  }
 
   return (
     <Flex
@@ -30,6 +38,7 @@ const LoginPrompt = () => {
             placeholder="Email"
             variant="outline"
             focusBorderColor="orange.400"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
@@ -42,7 +51,7 @@ const LoginPrompt = () => {
             color="white"
             _hover={{ bg: "orange.500" }}
             size="lg"
-            onClick={() => navigate('/home')}
+            onClick={() => handleLogin(email)}
           >
             LOGIN
           </Button>
